@@ -25,6 +25,8 @@ import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
 import Menu from '~/components/Propper/Menu';
 import 'tippy.js/dist/tippy.css';
+import { ActivityIcon, MessageIcon, UploadIcon } from '~/components/Icons';
+import Image from '~/components/Images';
 
 const cx = classNames.bind(styles);
 
@@ -134,7 +136,17 @@ function Header() {
                         <>
                             <Tippy delay={[0, 200]} content="Upload video" placement="bottom">
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faCloudUpload} />
+                                    <UploadIcon />
+                                </button>
+                            </Tippy>
+                            <Tippy delay={[0, 200]} content="Inbox" placement="bottom">
+                                <button className={cx('action-btn')}>
+                                    <MessageIcon />
+                                </button>
+                            </Tippy>
+                            <Tippy delay={[0, 200]} content="Notify" placement="bottom">
+                                <button className={cx('action-btn')}>
+                                    <ActivityIcon />
                                 </button>
                             </Tippy>
                         </>
@@ -146,7 +158,7 @@ function Header() {
                     )}
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <img
+                            <Image
                                 src="https://p16-sign-sg.tiktokcdn.com/tos-alisg-avt-0068/52c4068506abd44d4a9706d170cf6a54~tplv-tiktokx-cropcenter:100:100.jpg?dr=14579&nonce=94228&refresh_token=82a37339a8844b7188c572a601106e4c&x-expires=1740589200&x-signature=jk4ZM%2FT1TL%2FxQ3WI9mopMkC7ObQ%3D&idc=sg1&ps=13740610&shcp=ff37627b&shp=30310797&t=4d5b0474"
                                 className={cx('user-avatar')}
                                 alt="NguyenVanA"
