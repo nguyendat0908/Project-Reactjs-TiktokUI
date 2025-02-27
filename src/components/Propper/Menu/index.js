@@ -1,7 +1,7 @@
 import Tippy from '@tippyjs/react';
 import classNames from 'classnames/bind';
 import styles from './Menu.module.scss';
-import { Wrapper as ProperWrapper } from '~/components/Propper';
+import { Wrapper as PopperWrapper } from '~/components/Propper';
 import MenuItem from './MenuItem';
 import Header from './Header';
 import { useState } from 'react';
@@ -38,21 +38,22 @@ function Menu({ children, items = [], onChange = defaultFn }) {
     return (
         <Tippy
             interactive
-            delay={[0, 500]}
+            delay={[0, 700]}
+            offset={[12, 8]}
             placement="bottom-end"
             render={(attrs) => (
                 <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
-                    <ProperWrapper className={cx('menu-popper')}>
+                    <PopperWrapper className={cx('menu-popper')}>
                         {history.length > 1 && (
                             <Header
                                 title="Language"
                                 onBack={() => {
-                                    setHistory((pre) => pre.slice(0, pre.length - 1));
+                                    setHistory((prev) => prev.slice(0, prev.length - 1));
                                 }}
                             />
                         )}
                         {renderItems()}
-                    </ProperWrapper>
+                    </PopperWrapper>
                 </div>
             )}
         >
